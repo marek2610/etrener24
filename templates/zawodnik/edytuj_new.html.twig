@@ -1,0 +1,480 @@
+{% extends 'base_index.html.twig' %}
+
+{% block title %}Zestawienie zawodników{% endblock %}
+
+{% block body %}
+<h3></h3>
+
+<div class="col-xs-12">
+	
+	<div class="">
+{# {{ form_start(form, {"attr": {"novalidate": "novalidate"}}) }} #}
+{{ form_start(form)}}
+
+
+									<div id="user-profile-1" class="user-profile row">
+										<div class="col-xs-12 col-sm-3 center">
+											<div>
+												<span class="profile-picture">
+													<img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="{{ asset("ace_master/assets/images/avatars/profile-pic.jpg") }}">
+												</span>
+
+												<div class="space-4"></div>
+
+												<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+													<div class="inline position-relative">
+															<span class="white"> </span>
+													</div>
+												</div>
+											</div>
+
+											<div class="space-6"></div>
+
+											<div class="profile-contact-info">
+												<div class="profile-contact-links align-left">
+
+													<a href="#" class="btn btn-link">
+														<i class="ace-icon fa fa-envelope bigger-120 pink"></i>
+														Wyślij wiadomość
+													</a>
+
+													<a href="#" class="btn btn-link">
+														<i class="ace-icon fa fa-globe bigger-125 blue"></i>
+														www.alexdoe.com
+													</a>
+												</div>
+
+												<div class="space-6"></div>
+
+												<div class="profile-social-links align-center">
+													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
+														<i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
+													</a>
+
+													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
+														<i class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
+													</a>
+
+													<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
+														<i class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
+													</a>
+												</div>
+											</div>
+
+											<div>
+												<div class="space visible-xs"></div>
+												<h4 class="header blue lighter less-margin">Wyślij wiadomość do </h4>
+
+												<div class="space-6"></div>
+
+												<form>
+													<fieldset>
+														<textarea class="width-100" resize="none" placeholder="Type something…"></textarea>
+													</fieldset>
+
+													<div class="hr hr-dotted"></div>
+
+													<div class="clearfix">
+
+														<button class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+															Wyślij
+															<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+														</button>
+													</div>
+												</form>
+											</div>
+
+
+											<div class="clearfix">
+											</div>
+
+										</div>
+
+										<div class="col-xs-12 col-sm-9" style="margin-bottom: 15px;">
+											<div class="center">
+												<span class="btn btn-app btn-sm btn-light no-hover">
+													<span class="line-height-1 bigger-170 blue"> 1,411 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Minut </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-yellow no-hover">
+													<span class="line-height-1 bigger-170"> 32 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Meczy </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-pink no-hover">
+													<span class="line-height-1 bigger-170"> 4 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Bramek </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-grey no-hover">
+													<span class="line-height-1 bigger-170"> 23 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Kontuzji </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-success no-hover">
+													<span class="line-height-1 bigger-170"> 7 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Albums </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-primary no-hover">
+													<span class="line-height-1 bigger-170"> 55 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Contacts </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-primary no-hover">
+													<span class="line-height-1 bigger-170">
+														55
+													</span>
+
+													<br>
+													<span class="line-height-1 smaller-90">
+														Contacts
+													</span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-primary no-hover">
+													<span class="line-height-1 bigger-170">
+														55
+													</span>
+
+													<br>
+													<span class="line-height-1 smaller-90">
+														Contacts
+													</span>
+												</span>
+
+											</div>
+										</div>
+
+
+										<div class="col-xs-12 col-sm-9">
+										
+											<div class="col-xs-4 col-sm-4">
+												<div class="profile-user-info profile-user-info-striped">
+													
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Imię </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="username">{{form_widget(form.imie)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Nazwisko </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="username">{{form_widget(form.nazwisko)}}</span>
+														</div>
+													</div>
+
+
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Data urodzenia </div>
+
+														<div class="profile-info-value">
+															<div class="input-group">
+															{{form_widget(form.dataUrodzenia)}}
+															</div>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Drużyna </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="login">{{form_widget(form.team)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															PESEL
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{form_widget(form.pesel)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Miejsce urodzenia
+														</div>
+
+														<div class="profile-info-value">
+															
+															<span class="editable editable-click" id="country">{{form_widget(form.miejsceUrodzenia)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Adres
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="country">{{form_widget(form.adres)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Kod Pocztowy
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{form_widget(form.kodPocztowy)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Miejscowość
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="country">{{form_widget(form.miejscowosc)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Poczta
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{form_widget(form.poczta)}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Telefon
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{form_widget(form.telefon)}}</span>
+														</div>
+													</div>
+
+																										<div class="profile-info-row">
+														<div class="profile-info-name">
+															Email
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{form_widget(form.email)}}</span>
+														</div>
+													</div>
+
+												</div>	
+											</div>
+
+											<div class="col-xs-4 col-sm-4">
+												<div class="profile-user-info profile-user-info-striped">
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Noga
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.noga)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Szkoła
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.szkola)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Wzrost [cm]
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.wzrost)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Waga [kg]
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.waga)}}</span>
+															</div>
+														</div>
+
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Pozycja
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.pozycja)}}</span>
+															</div>
+														</div>
+
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Grupa krwi
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">
+																{{form_widget(form.grupaKrwi)}}
+																</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Pierwszy Klub
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.pierwszyKlub)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Nr na koszulce
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.numerNaKoszulce)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Nr karty zawodnika
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.nrKartyZawodnika)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Ważność karty zawodnika
+															</div>
+
+															<div class="profile-info-value">
+																<div class="input-group">
+																{{form_widget(form.dataWaznosciKarty)}}
+															</div>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Data rejestracji w klubie
+															</div>
+
+															<div class="profile-info-value">
+																<div class="input-group">
+																{{form_widget(form.dataRejestracjiWKlubie)}}
+															</div>
+															</div>
+														</div>
+
+												</div>
+											</div>
+
+											<div class="col-xs-4 col-sm-4">
+												<div class="profile-user-info profile-user-info-striped">
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Nazwisko rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.naziwskoRodzica)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Imię rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.imieRodzica)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																email rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.emailRodzica)}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																nr telefonu rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{form_widget(form.nrTelefonuRodzica)}}</span>
+															</div>
+														</div>
+
+														
+
+												</div>
+												
+												
+
+
+
+											</div>
+										</div>
+
+										<div class="clearfix"></div>
+										<div class="clearfix form-actions">
+											<div class="text-center">
+												{{ form_widget(form.submit) }}
+
+
+											</div>
+											{{ form_rest(form) }}
+										</div>
+
+									</div>
+	</div>
+	{{ form_end(form)}}
+</div>
+
+{% endblock %}

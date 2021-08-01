@@ -1,0 +1,71 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Sezon{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+<div class="col-xs-12">
+	<div class="widget-box">
+		{# nagłówek formularza  #}
+		<div class="widget-header">
+			<h4 class="widget-title">Edycja sezonu</h4>
+		</div>
+
+		<div class="form-horizontal" role="form">
+			<div class="form-group" style="margin-top:15px;">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					Nazwa
+				</label>
+				<div class="col-xs-10 col-sm-3">
+					{{form_widget(form.nazwa)}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					Opis
+				</label>
+				<div class="col-xs-10 col-sm-3">
+					{{form_widget(form.opis)}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					Zespół
+				</label>
+				<div class="col-xs-10 col-sm-3">
+					{{form_widget(form.team)}}
+				</div>
+			</div>
+
+
+			<div class="clearfix form-actions no-margin-bottom">
+				<div class="col-md-offset-3 col-md-9">
+
+
+					<button class="btn btn-success" type="submit">
+						<i class="ace-icon fa fa-plus bigger-110"></i>
+						Modyfikuj
+					</butto>
+					<button class="btn btn-warning disabled" type="reset">
+						<i class="ace-icon fa fa-undo bigger-110"></i>
+						Reset
+					</button>
+
+					<a class="btn btn-danger" href="{{ url("sezon_index") }}">
+							<i class="ace-icon fa fa-step-backward bigger-110"></i>Powrót
+					</a>
+
+
+				</div>
+			</div>
+
+		</div>
+		{{form_rest(form)}}
+		{{ form_end(form)}}
+	</div>
+</div>
+
+
+{% endblock %}

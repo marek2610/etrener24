@@ -1,0 +1,95 @@
+{% extends 'base_index.html.twig' %}
+
+{% block head %}
+	{# {{ parent() }} #}
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/jquery-ui.custom.min.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/chosen.min.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/bootstrap-datepicker3.min.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/bootstrap-timepicker.min.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/daterangepicker.min.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/bootstrap-datetimepicker.min.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("ace_master/assets/css/bootstrap-colorpicker.min.css") }}"/>
+{% endblock %}
+
+{% block title %}Dodawanie grupy krwi{% endblock %}
+
+{% block body %}
+<div class="col-xs-12">
+	<div class="widget-box">
+		{# nagłówek formularza  #}
+		<div class="widget-header">
+			<h4 class="widget-title">Dodawanie grupy wiekowej</h4>
+		</div>
+		<div class="form-horizontal" role="form">
+			{{ form_start(form, {"attr": {"novalidate": "novalidate"}}) }}
+			<div class="form-group" style="margin-top:15px;">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					{{ form_label(form.grupa) }}
+				</label>
+				<div class="col-xs-10 col-sm-3">
+					{{ form_widget(form.grupa) }}
+				</div>
+			</div>
+
+
+			<div class="clearfix form-actions no-margin-bottom">
+				<div class="col-md-offset-3 col-md-9">
+					{{form_widget(form.submit)}}
+
+					<button class="btn btn-warning" type="reset">
+						<i class="ace-icon fa fa-undo bigger-110"></i>
+						Reset
+					</button>
+					{{ form_rest(form) }}
+					<a href="{{ url("krew_index") }}">
+						<button class="btn btn-danger">
+							<i class="ace-icon fa fa-step-backward bigger-110"></i>Powrót
+						</button>
+					</a>
+					{{ form_end(form) }}
+				</div>
+
+			</div>
+		</form>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block page_scripts %}
+	{{ parent() }}
+	<script src="{{ asset("ace_master/assets/js/jquery-ui.custom.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/jquery.ui.touch-punch.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/chosen.jquery.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/spinbox.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/bootstrap-datepicker.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/bootstrap-timepicker.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/moment.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/daterangepicker.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/bootstrap-datetimepicker.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/bootstrap-colorpicker.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/jquery.knob.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/autosize.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/jquery.inputlimiter.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/jquery.maskedinput.min.js") }}"></script>
+	<script src="{{ asset("ace_master/assets/js/bootstrap-tag.min.js") }}"></script>
+{% endblock %}
+
+{% block inline_script %}
+	<script type="text/javascript">
+	jQuery(function($) {
+		//datepicker plugin
+		//link
+			$('.date-picker').datepicker({
+				autoclose: true,
+				todayHighlight: true
+			})
+			//show datepicker when clicking on the icon
+			.next().on(ace.click_event, function(){
+				$(this).prev().focus();
+			});
+});	
+</script>
+
+{% endblock %}

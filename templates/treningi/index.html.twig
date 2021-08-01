@@ -1,0 +1,53 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Treningi{% endblock %}
+
+{% block body %}
+<div class="col-xs-12">
+    <h4 class="header green">Treningi</h4>
+        <table id="simple-table" class="table  table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="detail-col">#</th>
+                <th class="col-xs-1">Data</th>
+                <th class="col-xs-3">Grupa wiekowa / Drużyna</th>
+                <th>Konspekt / Nazwa / Opis</th>
+                <th class="col-xs-2">Opcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in treningi %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ t.data | date("Y-m-d") }}</td>
+                <td>{{ t.druzyna.grupaWiekowa }} / {{ t.druzyna.nazwaShort }}</td>
+                <td>{{ t.konspekt.nazwa }} / {{ t.konspekt.opis }}</td>
+                <td>
+                    <a href="{{ url("treningi_edytuj", {"id": t.id }) }}" class="btn btn-xs btn-success ">
+                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                        Edytuj
+                    </a>
+
+                    <a href="{{ url("treningi_usun", {"id": t.id }) }}" class="btn btn-xs btn-inverse ">
+                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                        Usuń
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="text-center">
+                    <p>
+                        <strong>Uwaga!</strong>
+                        Niestety nie ma żadnej treningu. Aby dodać trening kliknij
+                        <a href={{ url("treningi_dodaj") }} class="alert-link">TUTAJ</a>.
+                    </p>
+
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        </table>
+</div>
+{% endblock %}

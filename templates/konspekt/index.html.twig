@@ -1,0 +1,55 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Konspekty{% endblock %}
+
+{% block body %}
+<div class="col-xs-12">
+    <h4 class="header green">
+        Konspekty
+    </h4>
+    <table id="simple-table" class="table  table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="detail-col">#</th>
+                <th class="col-xs-2">Nazwa</th>
+                <th class="col-xs-3">Temat</th>
+                <th>Krótki opis</th>
+                <th class="col-xs-3">Opcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for k in konspekty %}     
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ k.nazwa }}</td>
+                <td>{{ k.temat }}</td>
+                <td>{{ k.opis }}</td>
+                <td>
+                    <a href="{{ url("konspekt_edytuj", {"id": k.id }) }}" class="btn btn-xs btn-success ">
+                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                        Edytuj
+                    </a>
+
+                    <a href="{{ url("konspekt_usun", {"id": k.id }) }}" button class="btn btn-xs btn-inverse">
+                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                        Usuń
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="text-center">
+                    <p>
+                        <strong>Uwaga!</strong>
+                        Niestety nie ma żadnej konspektu. Aby dodać konspekt kliknij
+                        <a href={{ url("konspekt_dodaj") }} class="alert-link">TUTAJ</a>.
+                    </p>
+
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

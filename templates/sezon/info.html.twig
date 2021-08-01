@@ -1,0 +1,245 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Sezon{% endblock %}
+
+{% block body %}
+
+<div class="col-xs-12">
+	<div class="widget-box">
+		{# nagłówek formularza  #}
+		<div class="widget-header">
+			<h4 class="widget-title">Szczegóły sezonu
+				{{ sezon.nazwa }}
+				-
+				{{ sezon.opis }}
+				-
+				{{ sezon.team }}
+				PROJEKT</h4>
+		</div>
+
+
+		<div class="container">
+			<div class="space"></div>
+			<form class="form-horizontal" role="form">
+				<div class="tabbable">
+
+					<ul class="nav nav-tabs padding-16">
+						<li class="active">
+							<a data-toggle="tab" href="#przeciwnicy" aria-expanded="true">
+								<i class="green ace-icon fa fa-users bigger-125"></i>
+								Przeciwnicy
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#terminarz" aria-expanded="false">
+								<i class="green ace-icon fa fa-calendar-plus-o bigger-125"></i>
+								Terminarz
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#statystyki" aria-expanded="false">
+								<i class="green ace-icon fa fa-list-ol bigger-125"></i>
+								Statystyki
+							</a>
+						</li>
+					</ul>
+
+					<div class="tab-content profile-edit-tab-content">
+
+
+						{# Przeciwnicy #}
+						<div id="przeciwnicy" class="tab-pane active">
+							<h4 class="header blue bolder smaller">Przeciwnicy</h4>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="col-xs-6">
+										{{ form_start(przeciwnikForm)}}
+										<div class="col-xs-2">Drużyna</div>
+										<div class="col-xs-8">
+											{{ form_widget(przeciwnikForm.nazwa) }}
+										</div>
+										<div class="col-xs-2">
+											<button class="btn btn-success btn-xs" type="submit">Dodaj</button>
+										</div>
+										{{ form_end(przeciwnikForm)}}
+									</div>
+
+									<div class="col-xs-6">
+										<table class="table table-bordered table-hover">
+											<thead class="thin-border-bottom">
+												<tr>
+													<th class="detail-col">#</th>
+													<th>Drużyna</th>
+													<th>Opcje</th>
+												</tr>
+											</thead>
+											{% for p in sezon.przeciwnik|reverse %}
+												<tbody>
+													<tr>
+														<td>{{ loop.index }}</td>
+														<td>{{ p.nazwa }}</td>
+														<td>Opcje</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="space"></div>
+						</div>
+
+						{# Terminarz #}
+						<div id="terminarz" class="tab-pane">
+							<h4 class="header blue bolder smaller">Terminarz</h4>
+							<div class="row">
+								<div class="col-xs-12">
+									{{ form_start(meczForm)}}
+									<table>
+										<thead>
+											<tr>
+												<td class="col-xs-2">Data</td>
+												<td class="col-xs-2">Miejsce</td>
+												<td class="col-xs-4">Przeciwnik</td>
+												<td class="col-xs-2" colspan="3">Wynik</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>{{ form_widget(meczForm.data ) }}</td>
+												<td>{{ form_widget(meczForm.miejsce) }}</td>
+												<td>{{ form_widget(meczForm.przeciwnik) }}</td>
+												<td>{{ form_widget(meczForm.wynikHome) }}</td>
+												<td>:</td>
+												<td>{{ form_widget(meczForm.wynikAway) }}</td>
+												<td>
+													<button class="btn btn-success btn-sm" type="submit">Dodaj</button>
+												</td>
+											</tr>
+											{{ form_rest(meczForm) }}
+										</tbody>
+										{{ form_end(meczForm)}}
+									</table>
+								</div>
+							</div>
+
+							<div class="space-6 clearfix"></div>
+
+							<div class="row">
+								<div class="col-xs-12">
+									<table class="table table-bordered table-hover">
+										<thead class="thin-border-bottom">
+											<tr>
+												<th class="detail-col">#</th>
+												<th>Data</th>
+												<th>Miejsce</th>
+												<th>Przeciwnik</th>
+												<th>Wynik</th>
+												<th>Opcje</th>
+											</tr>
+										</thead>
+										{% for m in mecze %}
+											<tbody>
+												<tr>
+													<td>{{ loop.index }}</td>
+													<td>{{ m.data | date("Y-m-d") }}</td>
+													<td>{{ m.miejsce }}</td>
+													<td>{{ m.przeciwnik }}</td>
+													<td>{{ m.wynikHome }}
+														:
+														{{ m.wynikAway }}</td>
+													<td>Opcje</td>
+												</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+
+
+							</div>
+
+							<div class="space"></div>
+						</div>
+
+						{# Statystyki #}
+						<div id="statystyki" class="tab-pane">
+							<h4 class="header blue bolder smaller">Statystyki - JESZCZE NIE LICZY AUTOMATYCZNIE</h4>
+							<div class="row">
+								<div class="col-xs-12">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th></th>
+											<th>Mecze</th>
+											<th>Z</th>
+											<th>R</th>
+											<th>P</th>
+											<th class="text-center" colspan="2">Bramki</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>{{ sezon.team }}</td>
+											<td>5</td>
+											<td>1</td>
+											<td>8</td>
+											<td>1</td>
+											<td class="text-center">13</td>
+											<td class="text-center">12</td>
+										</tr>
+									</tbody>
+								</table>
+									
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div class="clearfix"></div>
+				{# klawisze funkcyjne #}
+				{# <div class="clearfix form-actions no-margin-bottom">
+												<div class="col-md-offset-3 col-md-9">
+													
+													<button class="btn btn-success" type="submit">
+														<i class="ace-icon fa fa-check bigger-110"></i>
+														Save
+													</button>
+								
+													&nbsp; &nbsp;
+													<button class="btn" type="reset">
+														<i class="ace-icon fa fa-undo bigger-110"></i>
+														Reset
+													</button>
+								
+													<button class="btn btn-success" type="submit">
+														<i class="ace-icon fa fa-plus bigger-110"></i>
+														Modyfikuj
+													</butto>
+								
+													<button class="btn btn-warning disabled" type="reset">
+														<i class="ace-icon fa fa-undo bigger-110"></i>
+														Reset
+													</button>
+								
+													<a class="btn btn-danger" href="{{ url("sezon_index") }}">
+															<i class="ace-icon fa fa-step-backward bigger-110"></i>Powrót
+													</a>
+								
+												</div>
+								
+											</div> #}
+
+			</form>
+		</div>
+
+		<div class="space"></div>
+
+	</div>
+</div>
+{% endblock %}

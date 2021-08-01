@@ -1,0 +1,60 @@
+security:
+    encoders:
+        App\Entity\User:
+            #algorithm: auto
+            algorithm: bcrypt
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+
+        #app_user_provider:
+        # in_memory: { memory: ~ }
+
+        # in_database:
+        #     entity:
+        #         class: App\Entity\User
+        #         property: email
+
+        my_provader: 
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            #anonymous: lazy
+            anonymous: true
+            
+
+            form_login:
+                login_path: security_login
+                check_path: security_login
+                provider: my_provader
+            
+            logout:
+                path: security_logout
+                target: security_login
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+        #- { path: ^/, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/forgot, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+    role_hierarchy:
+        ROLE_EDITOR: [ROLE_USER]
+        ROLE_ADMIN: [ROLE_EDITOR]

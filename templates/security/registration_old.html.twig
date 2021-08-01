@@ -1,0 +1,29 @@
+{% extends 'base_index.html.twig' %}
+
+{% block title %} Hello SecurityController! {% endblock %}
+
+{% block body %}
+<h2>Formularz rejestracji</h2>
+{{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email, {
+        'label': 'Adres email',
+        'attr' : 
+            {'placeholder': 'Adres email...'}
+        }
+        ) }}
+    {{ form_row(form.password, {
+        'label': 'Hasło',
+        'attr' : 
+            {'placeholder': 'Podaj hasło'}
+        }
+        ) }}
+    {{ form_row(form.confirm_password, {
+        'label': 'Potwierdzenie hasła',
+        'attr' : 
+            {'placeholder': 'Powtórz hasło'}
+        }
+        ) }}
+    <button type="submit" class="btn btn-success">Rejestruj</button>
+{{ form_end(form) }}
+{% endblock %}

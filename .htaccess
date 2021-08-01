@@ -1,0 +1,5 @@
+
+  AuthType Basic
+  AuthName "Moja prywatna strefa. Zakaz wstepu."
+  AuthUserFile /public_html/.htpasswd
+  Require valid-user

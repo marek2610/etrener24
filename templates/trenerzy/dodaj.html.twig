@@ -1,0 +1,106 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}
+    Trenerzy
+{% endblock %}
+{% block body %}
+<div class="col-xs-12">
+	
+	<div class="widget-box">
+
+		{# nagłówek formularza  #}
+		<div class="widget-header">
+			<h4 class="widget-title">
+			{% if editMode %}
+				Edycja danych trenera
+			{% else %} 
+				Dodawanie trenera
+			{% endif %}
+			</h4>
+		</div>
+		{# koniec nagłówka formularza  #}
+
+				{# formularz dodawania trenera #}
+				
+				<div class="form-horizontal no-padding-bottom" role="form">
+						{{ form_start(trenerzyFormularz)}}
+					<fieldset>
+						<div class="form-group" style="margin-top:15px;">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+								Nazwisko i imię
+							</label>
+							<div class="col-xs-10 col-sm-5">
+								{{ form_widget(trenerzyFormularz.trener) }}
+								<span class="help-block">Nazwisko i imię trenera</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+								Uprawnienia
+							</label>
+							<div class="col-xs-10 col-sm-5">
+								{{ form_widget(trenerzyFormularz.uprawnienia) }}
+								<span class="help-block">Należy wpisać uprawnienia zdobyte przez trenera do trenowaniao drużyną</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+								Opis
+							</label>
+							<div class="col-xs-10 col-sm-5">
+								{{ form_widget(trenerzyFormularz.opis) }}
+								<span class="help-block">Krótki opis</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+								Data zatrudnienia
+							</label>
+							<div class="col-xs-10 col-sm-1">
+								{{ form_widget(trenerzyFormularz.zatrudniony) }}
+								<span class="help-block ">Data zatrudnienia</span>
+							</div>
+						</div>
+
+					</fieldset>
+
+
+						<div class="clearfix center form-actions no-margin-bottom">
+								{% if editMode %}
+									<button class="btn btn-success" type="submit">
+										<i class="ace-icon fa fa-pencil bigger-110"></i>
+										Edytuj
+									</button>
+								{% else %}
+									<button class="btn btn-success" type="submit">
+										<i class="ace-icon fa fa-plus bigger-110"></i>
+										Dodaj
+									</button>
+
+									<button class="btn btn-warning" type="reset">
+										<i class="ace-icon fa fa-undo bigger-110"></i>
+										Reset
+									</button>
+								{% endif %}
+
+								
+								
+								{{ form_rest(trenerzyFormularz)}}
+						</div>
+						
+						{{ form_end(trenerzyFormularz)}}
+
+					{# formularz dodawania trenera - koniec #}
+				</div>
+				{# koniec formularza dodawania trenera #}
+
+
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+{% endblock %}

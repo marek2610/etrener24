@@ -1,0 +1,280 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}
+  Profil użytkownika
+  
+{% endblock %}
+
+{% block body %}
+    
+<div class="col-xs-12">
+	<div class="">
+	{{ form_start(form) }}
+		<div id="user-profile-1" class="user-profile row">
+			<div class="col-xs-12 col-sm-3 center">
+				<div>
+					<span class="profile-picture">
+						<img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="{{ asset("ace_master/assets/images/avatars/profile-pic.jpg") }}">
+					</span>
+
+					<div class="space-4"></div>
+            zdjęcie klubu lub usera - będzie widoczne w prawym górnym rogu 
+					<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+						<div class="inline position-relative">
+							<span class="white">{{ app.user.username }}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="space-6"></div>
+
+				<div class="clearfix"></div>
+
+			</div>
+
+			<div class="col-xs-12 col-sm-9" style="margin-bottom: 15px;">
+				<div class="center">
+					<span class="btn btn-app btn-sm btn-light no-hover">
+						<span class="line-height-1 bigger-170 blue">
+							1,411
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							Zawodników
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-light no-hover">
+						<span class="line-height-1 bigger-170">
+							32
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							Drużyny
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-success no-hover">
+						<span class="line-height-1 bigger-170">
+							4
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							????
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-grey no-hover">
+						<span class="line-height-1 bigger-170">
+							23
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							????
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-yellow no-hover">
+						<span class="line-height-1 bigger-170">
+							7
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							????
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-danger no-hover">
+						<span class="line-height-1 bigger-170">
+							55
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							????
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-primary no-hover">
+						<span class="line-height-1 bigger-170">
+							55
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							????
+						</span>
+					</span>
+
+					<span class="btn btn-app btn-sm btn-primary no-hover">
+						<span class="line-height-1 bigger-170">
+							55
+						</span>
+
+						<br>
+						<span class="line-height-1 smaller-90">
+							????
+						</span>
+					</span>
+
+				</div>
+			</div>
+
+
+			<div class="col-xs-12 col-sm-9">
+
+        
+				<div class="col-xs-12">
+					<div class="profile-user-info profile-user-info-striped">
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								użytkownik
+							</div>
+
+							<div class="profile-info-value" >
+								<span class="editable editable-click" id="username" >
+                  {{ form_widget(form.username) }}
+                </span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								imię
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="age">
+                  {{ form_widget(form.imie) }}
+                </span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								nazwisko
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="signup">{{ form_widget(form.nazwisko) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								nazwa klubu
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="login">{{ form_widget(form.klub) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								adres
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="about">{{ form_widget(form.adres) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								miejscowość
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="country">{{ form_widget(form.miejscowosc) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								kod pocztowy
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="country">{{ form_widget(form.kodPocztowy) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								poczta
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="about">{{ form_widget(form.poczta) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								telefon
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="country">{{ form_widget(form.telefon) }}</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								email
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="about">
+                  {{ form_widget(form.email) }}
+                </span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name">
+								www
+							</div>
+
+							<div class="profile-info-value">
+								<span class="editable editable-click" id="about">{{ form_widget(form.www) }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="clearfix"></div>
+
+		</div>
+
+		<div class="clearfix form-actions">
+			<div class="col-md-offset-3 col-md-">
+
+				<a href="{{ url("user_edit")}}">
+					<button class="btn btn-info pull-left">
+						<i class="ace-icon glyphicon glyphicon-pencil "></i>Edytuj
+					</button>
+				</a>
+				<div class="clearfix"></div>
+
+				
+			</div>
+			{{ form_rest(form) }}
+		</div>
+  	{{ form_end(form) }}
+
+	</div>
+</div>
+
+
+{% endblock %}

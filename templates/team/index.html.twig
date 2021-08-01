@@ -1,0 +1,101 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Zestawienie drużyn{% endblock %}
+
+{% block body %}
+<div class="col-xs-12">
+<h4 class="header green">Drużyny</h4>
+	<table id="simple-table" class="table  table-bordered table-hover">
+		<thead>
+			<tr>
+				<th class="detail-col">#</th>
+				<th class="col-xs-3">Nazwa drużyny</th>
+				<th class="col-xs-2">Nazwa skrócona</th>
+				<th>Kategoria</th>
+				<th class="col-xs-3">Opis</th>
+				<th class="hidden-480">Trener</th>
+				<th>Opcje</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for t in teams %}
+				<tr>
+					<td class="center">
+						{{loop.index}}.
+					</td>
+
+					<td>
+						{{ t.nazwa }}
+						{# <a href="{{ url("zawodnik_details", {"id": zawodnik.id}) }}">
+						</a> #}
+					</td>
+					<td class="hidden-480">{{ t.nazwaShort }}</td>
+					<td>{{ t.grupaWiekowa }}</td>
+					<td>{{ t.opis }}</td>
+					<td class="hidden-480">
+						{{ t.trener }}
+					</td>
+					<td>
+						<div class="hidden-sm hidden-xs btn-group">
+							{# <a href="{{ url("zawodnik_details", {"id": zawodnik.id}) }}">
+							<button class="btn btn-xs btn-info">
+								<i class="ace-icon fa fa-pencil bigger-120"></i> Info
+							</button>
+							</a>
+
+							<a href="{{ url("zawodnik_edytuj", {"id": zawodnik.id}) }}">
+							<button class="btn btn-xs btn-success">
+								<i class="ace-icon fa fa-pencil bigger-120"></i> Edytuj
+							</button>
+							</a>
+
+							<a href="{{ url("urazy_details", {"id": zawodnik.id}) }}">
+								<button class="btn btn-xs btn-danger">
+									<i class="ace-icon fa fa-trash-o bigger-120"></i>
+									Dodaj kontuzję
+								</button>
+							</a> #}
+
+              {# <a href="" class="btn btn-xs btn-info disabled">
+								<i class="ace-icon fa fa-pencil bigger-120"></i> Info
+							</a> #}
+
+              <a href="{{ url('team_edytuj', {"id": t.id }) }}" class="btn btn-xs btn-success">
+								<i class="ace-icon fa fa-pencil bigger-120"></i> Edytuj
+							</a>
+
+              <a href="{{ url('team_usun', {"id": t.id }) }}" class="btn btn-xs btn-invers ">
+                <i class="ace-icon fa fa-trash-o bigger-120"></i>  Usuń
+              </a>
+
+
+							{# {{form_start(usunForm, {'attr': {'class': ''}})}}
+								{{form_widget(usunForm.submit, {'attr': {'class': 'btn-warning fa fa-trash bigger-110'}})}}
+								{{form_rest(usunForm)}}
+							{{form_end(usunForm)}} #}
+
+						</div>
+
+					</td>
+				</tr>
+			{% else %}
+			<tr>
+				<td colspan="7">
+					<div class="text-center" role="alert">
+						<p>
+								<strong>Uwaga!</strong> Niestety nie ma żadnej drużyny.
+							Aby dodać drużynę kliknij <a href={{ url("team_dodaj") }} class="alert-link">TUTAJ</a>.
+						</p>
+
+					</div>
+
+				</td>
+			</tr>	
+			{% endfor %}
+
+		</tbody>
+	</table>
+
+</div>
+{% endblock %}

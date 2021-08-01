@@ -1,0 +1,63 @@
+{% extends 'base_index.html.twig' %}
+
+{% block body %}
+<div class="col-xs-12">
+	<div class="widget-box">
+		{# nagłówek formularza  #}
+		<div class="widget-header">
+			<h4 class="widget-title">Dodawanie grupy wiekowej</h4>
+		</div>
+
+		<form class="form-horizontal" role="form">
+			{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+			<div class="form-group" style="margin-top:15px;">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					{{form_label(form.nazwaPzpn)}}
+				</label>
+				<div class="col-xs-10 col-sm-3">
+					{{form_widget(form.nazwaPzpn)}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					{{form_label(form.grupaWiekowa)}}
+				</label>
+				<div class="col-xs-10 col-sm-3">
+					{{form_widget(form.grupaWiekowa)}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+					{{form_label(form.nazwaUefa)}}
+				</label>
+				<div class="col-xs-10 col-sm-3">
+
+					{{form_widget(form.nazwaUefa)}}
+				</div>
+			</div>
+
+			<div class="clearfix form-actions no-margin-bottom">
+				<div class="col-md-offset-3 col-md-9">
+					{{form_widget(form.submit)}}
+					{{form_rest(form)}}
+					<button class="btn btn-warning" type="reset">
+						<i class="ace-icon fa fa-undo bigger-110"></i>
+						Reset
+					</button>
+					<a href="{{ url("kategoria_wiekowa_index") }}">
+						<button class="btn btn-danger">
+							<i class="ace-icon fa fa-step-backward bigger-110"></i>Powrót
+						</button>
+					</a>
+
+
+				</div>
+			</div>
+
+			{{ form_end(form)}}
+		</form>
+	</div>
+</div>
+{% endblock %}

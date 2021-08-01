@@ -1,0 +1,74 @@
+{% extends 'base_security.html.twig' %}
+
+{% block title %}e-trener24.pl - Logowanie{% endblock %}
+
+{% block body %}
+<div id="login-box" class="login-box visible widget-box no-border">
+	<div class="widget-body">
+		<div class="widget-main">
+			<h4 class="header blue lighter bigger">
+				<i class="ace-icon fa fa-coffee green"></i>
+				Podaj swoje dane
+			</h4>
+
+			<div class="space-6"></div>
+
+			<form action="{{ url('security_login') }}" class="" method="post">
+				<fieldset>
+					<label class="block clearfix">
+						<span class="block input-icon input-icon-right">
+							<input placeholder="Adres email..." required name="_username" type="text" class="form-control">
+							<i class="ace-icon fa fa-user"></i>
+						</span>
+					</label>
+
+					<label class="block clearfix">
+						<span class="block input-icon input-icon-right">
+							<input placeholder="Hasło" required name="_password" type="password" class="form-control">
+							<i class="ace-icon fa fa-lock"></i>
+						</span>
+					</label>
+
+					<div class="space"></div>
+
+					<div class="clearfix">
+						<label class="inline">
+							<input type="checkbox" class="ace"/>
+							<span class="lbl">
+								Pamiętaj Mnie</span>
+						</label>
+
+						<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+							<i class="ace-icon fa fa-key"></i>
+							<span class="bigger-110">Login</span>
+						</button>
+					</div>
+
+					<div class="space-4"></div>
+				</fieldset>
+			</form>
+
+		</div>
+		<!-- /.widget-main -->
+
+		<div class="toolbar clearfix">
+			<div>
+				<a href="{{ url('security_forgot')}}" class="forgot-password-link">
+					<i class="ace-icon fa fa-arrow-left"></i>
+					Zapomniałem hasła
+				</a>
+			</div>
+
+			<div>
+				<a href="{{ url('security_registration')}}" class="user-signup-link">
+					Rejestracja
+					<i class="ace-icon fa fa-arrow-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- /.widget-body -->
+</div>
+<!-- /.login-box -->
+
+{% endblock %}

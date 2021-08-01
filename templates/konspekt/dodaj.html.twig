@@ -1,0 +1,183 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Nowy konspekt{% endblock %}
+
+{% block body %}
+
+<div class="col-xs-12">
+	<div class="widget-box">
+		{# nagłówek formularza  #}
+		<div class="widget-header">
+			<h4 class="widget-title">
+				{% if editMode %}
+            Edycja konspektu
+        {% else %}
+            Dodawanie konspektu
+        {% endif %}
+			</h4>
+		</div>
+		<div class="form-horizontal" role="form">
+		{{ form_start(form) }}
+			<div class="container">
+				<h4 class="header blue bolder smaller">Informacje główne</h4>
+
+				<div class="row">
+
+					<div class="col-xs-12 col-sm-8">
+
+						<div class="form-group">
+							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+								Nazwa konspektu
+							</label>
+							<div class="col-xs-10 col-sm-7">
+								{{ form_widget(form.nazwa) }}
+								<span class="help-block ">Nazwa konspektu - będzie pojawiać się w powiązanych częściach aplikacji jak TRENINGI</span>
+							</div>
+						</div>
+
+						<div class="space-4"></div>
+
+						<div class="form-group">
+							<label class="col-sm-4 control-label no-padding-right" for="form-field-username">Temat zajęć</label>
+
+							<div class="col-xs-10 col-sm-7">
+								{{ form_widget(form.temat) }}
+								<span class="help-block ">Ćwiczenia oswajające z piłką (próby podań/strzałów)</span>
+							</div>
+						</div>
+
+						<div class="space-4"></div>
+
+						<div class="form-group">
+							<label class="col-sm-4 control-label no-padding-right" for="form-field-username">Opis</label>
+
+							<div class="col-xs-10 col-sm-7">
+								{{ form_widget(form.opis) }}
+								<span class="help-block ">Króki opis zajęć np.: Zd. rytmizacji i sprzężenia ruchów, zd. zachowania równowagi, szybkość z piłką</span>
+							</div>
+						</div>
+
+						<div class="space-4"></div>
+
+						<div class="form-group">
+							<label class="col-sm-4 control-label no-padding-right" for="form-field-username">Czas zajęć</label>
+
+							<div class="col-xs-10 col-sm-7">
+								<input type="number" name="" id="" value='{{ form_widget(form.czasZajec) }}'> min.
+								<span class="help-block ">Czas prowadzenia zajęć: 90 min.</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<h4 class="header blue bolder smaller">Przybory</h4>
+					<div class="row">
+						<div class="col-xs-12">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th >Piłki</th>
+										<th >Bramki</th>
+										<th >Oznaczniki</th>
+										<th >Stożki</th>
+										<th >Pachołki</th>
+										<th >Tyczki</th>
+										<th >Drabinki</th>
+										<th >Inne</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.pilki) }}'></td>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.bramki) }}'></td>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.oznaczniki) }}'></td>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.stozki) }}'></td>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.pacholki) }}'></td>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.tyczki) }}'></td>
+										<td><input class="col-xs-12" type="number" name="" id="" value='{{ form_widget(form.drabinki) }}'></td>
+										<td>{{ form_widget(form.inne) }}</td>
+									</tr>
+								</tbody>
+							</table>
+							<span class="help-block ">Należy podać liczbę przyborów wykorzystywanych w ćwiczeniu</span>
+						</div>
+					</div>
+
+				<div class="space"></div>
+				<h4 class="header blue bolder smaller">Opis zajęć</h4>
+					<div class="row">
+						<div class="col-xs-12">
+							<table class="table table-bordered table-striped">
+								<thead class="thin-border-bottom">
+									<tr>
+										<th class="col-xs-4">Grafika</th>
+										<th>Opis</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="">
+												<label class="ace-file-input ace-file-multiple"><input type="file" disabled><span class="ace-file-container hide-placeholder selected">
+														<span class="ace-file-name" data-title="profile-pic.jpg"><img class="middle" style="display:none;" src="assets/images/avatars/profile-pic.jpg"><i class=" ace-icon fa fa-picture-o file-image"></i>
+														</span>
+													</span>
+													
+												</label>
+											</div>
+
+										</td>
+										<td>
+											<div class="col-sm-9">
+												{{ form_widget(form.opisZajec) }}
+											</div>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+
+							<span class="help-block ">Należy opisać rodzaj ćwiczeń oraz ewentua;ne modyfikacje. Istniej możliwość dodania zdjęć, saknów konspektu treningowego.</span>
+
+							<span class="help-block "><strong> Uwaga!!! Dodawanie grafiki obecnie niedostępne.</strong></span>
+						</div>
+					</div>
+
+
+			</div>
+
+
+			<div class="clearfix form-actions no-margin-bottom">
+				<div class="col-md-offset-3 col-md-9">
+
+						{% if editMode %}
+							<button class="btn btn-success" type="submit">
+								<i class="ace-icon fa fa-pencil bigger-110"></i>
+								Edytuj
+							</button>
+						{% else %}
+							<button class="btn btn-success" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								Zapisz
+							</button>
+
+							&nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								Reset
+							</button>
+						{% endif %}
+
+				</div>
+			{{ form_rest(form) }}
+			</div>
+		{{ form_end(form) }}
+		</div>
+
+	</div>
+</div>
+
+
+
+{% endblock %}

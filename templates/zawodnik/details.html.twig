@@ -1,0 +1,463 @@
+{% extends 'base_index.html.twig' %}
+
+{% block title %}Zestawienie zawodników{% endblock %}
+
+{% block body %}
+<h3></h3>
+
+<div class="col-xs-12">
+	<div class="">
+									<div id="user-profile-1" class="user-profile row">
+										<div class="col-xs-12 col-sm-3 center">
+											<div>
+												<span class="profile-picture">
+													<img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="{{ asset("ace_master/assets/images/avatars/profile-pic.jpg") }}">
+												</span>
+
+												<div class="space-4"></div>
+
+												<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+													<div class="inline position-relative">
+															<span class="white">{{ zawodnik.nazwisko}} {{ zawodnik.imie}}</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="space-6"></div>
+
+											<div class="profile-contact-info">
+												<div class="profile-contact-links align-left">
+
+													<a href="#" class="btn btn-link">
+														<i class="ace-icon fa fa-envelope bigger-120 pink"></i>
+														Wyślij wiadomość
+													</a>
+
+													<a href="#" class="btn btn-link">
+														<i class="ace-icon fa fa-globe bigger-125 blue"></i>
+														www.alexdoe.com
+													</a>
+												</div>
+
+												<div class="space-6"></div>
+
+												<div class="profile-social-links align-center">
+													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
+														<i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
+													</a>
+
+													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
+														<i class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
+													</a>
+
+													<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
+														<i class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
+													</a>
+												</div>
+											</div>
+
+											<div>
+												<div class="space visible-xs"></div>
+												<h4 class="header blue lighter less-margin">Wyślij wiadomość do {{ zawodnik.nazwisko}} {{ zawodnik.imie}}</h4>
+
+												<div class="space-6"></div>
+
+												<form>
+													<fieldset>
+														<textarea class="width-100" resize="none" placeholder="Type something…"></textarea>
+													</fieldset>
+
+													<div class="hr hr-dotted"></div>
+
+													<div class="clearfix">
+
+														<button class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+															Wyślij
+															<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+														</button>
+													</div>
+												</form>
+											</div>
+
+
+											<div class="clearfix">
+											</div>
+
+										</div>
+
+										<div class="col-xs-12 col-sm-9" style="margin-bottom: 15px;">
+											<div class="center">
+												<span class="btn btn-app btn-sm btn-light no-hover">
+													<span class="line-height-1 bigger-170 blue"> 1,411 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Minut </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-light no-hover">
+													<span class="line-height-1 bigger-170"> 32 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Meczy </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-success no-hover">
+													<span class="line-height-1 bigger-170"> 4 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Bramek </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-grey no-hover">
+													<span class="line-height-1 bigger-170"> 23 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Kontuzji </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-yellow no-hover">
+													<span class="line-height-1 bigger-170"> 7 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Kartek </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-danger no-hover">
+													<span class="line-height-1 bigger-170"> 55 </span>
+
+													<br>
+													<span class="line-height-1 smaller-90"> Kartek </span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-primary no-hover">
+													<span class="line-height-1 bigger-170">
+														55
+													</span>
+
+													<br>
+													<span class="line-height-1 smaller-90">
+														Asysty I &#176
+													</span>
+												</span>
+
+												<span class="btn btn-app btn-sm btn-primary no-hover">
+													<span class="line-height-1 bigger-170">
+														55
+													</span>
+
+													<br>
+													<span class="line-height-1 smaller-90">
+														Asyst II &#176
+													</span>
+												</span>
+
+											</div>
+										</div>
+
+
+										<div class="col-xs-12 col-sm-9">
+										
+											<div class="col-xs-4 col-sm-4">
+												<div class="profile-user-info profile-user-info-striped">
+													
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Zawodnik </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="username">{{ zawodnik.nazwisko}} {{ zawodnik.imie}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Age </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="age">38</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Data urodzenia </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="signup">{{ zawodnik.dataUrodzenia | date("Y-m-d")}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name"> Drużyna </div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="login">{{ zawodnik.team}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															PESEL
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{ zawodnik.pesel}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Miejsce urodzenia
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="country"{{ zawodnik.miejsceUrodzenia}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Adres
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="country"{{ zawodnik.adres}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Kod Pocztowy
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{ zawodnik.kodPocztowy}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Miejscowość
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="country"{{ zawodnik.miejscowosc}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Poczta
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{ zawodnik.poczta}}</span>
+														</div>
+													</div>
+
+													<div class="profile-info-row">
+														<div class="profile-info-name">
+															Telefon
+														</div>
+
+														<div class="profile-info-value">
+															<span class="editable editable-click" id="about">{{ zawodnik.telefon}}</span>
+														</div>
+													</div>
+												</div>	
+											</div>
+
+											<div class="col-xs-4 col-sm-4">
+												<div class="profile-user-info profile-user-info-striped">
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Noga
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.noga}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Szkoła
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.szkola}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Wzrost
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.wzrost}} cm</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Waga
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.waga}} kg</span>
+															</div>
+														</div>
+
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Pozycja
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.pozycja}}</span>
+															</div>
+														</div>
+
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Grupa krwi
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.grupaKrwi}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Pierwszy Klub
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.pierwszyKlub}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Nr na koszulce
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.numerNaKoszulce}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Nr karty zawodnika
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.nrKartyZawodnika}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Ważność karty zawodnika
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.dataWaznosciKarty | date("Y-m-d")}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Data rejestracji w klubie
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.dataRejestracjiWKlubie | date("Y-m-d")}}</span>
+															</div>
+														</div>
+
+												</div>
+											</div>
+
+											<div class="col-xs-4 col-sm-4">
+												<div class="profile-user-info profile-user-info-striped">
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																Nazwisko i imię rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.naziwskoRodzica}} {{ zawodnik.imieRodzica}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																email rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.emailRodzica}}</span>
+															</div>
+														</div>
+
+														<div class="profile-info-row">
+															<div class="profile-info-name">
+																nr telefonu rodzica
+															</div>
+
+															<div class="profile-info-value">
+																<span class="editable editable-click" id="about">{{ zawodnik.nrTelefonuRodzica}}</span>
+															</div>
+														</div>
+
+												</div>
+
+											</div>
+										</div>
+
+										<div class="clearfix"></div>
+
+									</div>
+
+												<div class="clearfix form-actions">
+													<div class="col-md-offset-3 col-md-9">
+													
+														<a href="{{ url("zawodnik_index") }}">
+															<button class="btn btn-default pull-left">
+																<i class="ace-icon fa fa-step-backward bigger-110"></i>Powrót
+															</button>
+														</a>
+
+														<a href="{{ url("zawodnik_edytuj", {"id": zawodnik.id}) }}">
+															<button class="btn btn-info pull-left ">
+																<i class="ace-icon glyphicon glyphicon-pencil "></i>Edytuj
+															</button>
+														</a>										
+
+
+														{# {{form_start(kontuzjaForm, {'attr': {'class': 'pull-left'}})}}
+															{{form_widget(kontuzjaForm.submit, {'attr': {'class': ' btn-warning fa fa-remove '}})}}
+															{{form_rest(kontuzjaForm)}}
+														{{form_end(kontuzjaForm)}} #}
+
+														{{form_start(usunForm, {'attr': {'class': 'pull-left'}})}}
+															{{form_widget(usunForm.submit, {'attr': {'class': ' btn-danger fa fa-user-times '}})}}
+															{{form_rest(usunForm)}}
+														{{form_end(usunForm)}}
+
+														<div class="clearfix"></div>
+
+
+
+													</div>
+												</div>
+
+	</div>
+</div>
+
+{% endblock %}

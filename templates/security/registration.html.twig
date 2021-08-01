@@ -1,0 +1,108 @@
+{% extends 'base_security.html.twig' %}
+
+{% block title %}e-trener24.pl - Logowanie{% endblock %}
+
+{% block body %}
+<div id="signup-box" class="signup-box visible widget-box no-border">
+	<div class="widget-body">
+		<div class="widget-main">
+			<h4 class="header green lighter bigger">
+				<i class="ace-icon fa fa-users blue"></i>
+				Rejestracja
+			</h4>
+
+			<div class="space-6"></div>
+			<p>
+				Wprowadź dane:
+			</p>
+
+			{{ form_start(form) }}
+			<form>
+				<fieldset>
+					<label class="block clearfix">
+						<span class="block input-icon input-icon-right">
+							{{ form_widget(form.email, {
+											'label': 'Adres email',
+											'attr' : 
+													{'placeholder': 'Adres email...'}
+											}
+											) }}
+
+							<i class="ace-icon fa fa-envelope"></i>
+						</span>
+					</label>
+
+					<label class="block clearfix">
+						<span class="block input-icon input-icon-right">
+							{{ form_widget(form.username) }}
+							<i class="ace-icon fa fa-user"></i>
+						</span>
+					</label>
+
+					<label class="block clearfix">
+						<span class="block input-icon input-icon-right">
+							{{ form_widget(form.password, {
+											'label': 'Hasło',
+											'attr' : 
+													{'placeholder': 'Podaj hasło'}
+											}
+											) }}
+							<i class="ace-icon fa fa-lock"></i>
+						</span>
+					</label>
+
+					<label class="block clearfix">
+						<span class="block input-icon input-icon-right">
+							{{ form_widget(form.confirm_password, {
+											'label': 'Potwierdzenie hasła',
+											'attr' : 
+													{'placeholder': 'Powtórz hasło'}
+											}
+											) }}
+
+							<i class="ace-icon fa fa-retweet"></i>
+						</span>
+					</label>
+					{{ form_rest(form) }}
+
+					{# <label class="block">
+						<input type="checkbox" class="ace"/>
+						<span class="lbl">
+							Akceptuję
+							<a href="#">Warunki</a>
+						</span>
+					</label> #}
+
+					<div class="space-24"></div>
+
+					<div class="clearfix">
+						<button type="reset" class="width-30 pull-left btn btn-sm disabled">
+							<i class="ace-icon fa fa-refresh"></i>
+							<span class="bigger-110">Reset</span>
+						</button>
+
+						<button type="submit" class="width-65 pull-right btn btn-sm btn-success ">
+							<span class="bigger-110">Rejestruj</span>
+
+							<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+						</button>
+					</div>
+				</fieldset>
+			</form>
+			
+			{{ form_end(form) }}
+		</div>
+
+		<div class="toolbar center">
+			<a href="{{ url('security_login') }}" class="back-to-login-link">
+				<i class="ace-icon fa fa-arrow-left"></i>
+				Powrót do logowania
+			</a>
+		</div>
+	</div>
+	<!-- /.widget-body -->
+</div>
+<!-- /.signup-box -->
+
+
+{% endblock %}

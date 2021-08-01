@@ -1,0 +1,109 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}
+    Trenerzy
+{% endblock %}
+{% block body %}
+<div class="col-xs-12">
+	
+	<h4 class="header green">Trenerzy</h4>
+	{# tabela zestawienie trenerów #}
+	<table class="table table-bordered table-striped">
+		<thead class="thin-border-bottom">
+			<tr>
+				<th>
+					#
+				</th>
+
+				<th class="col-xs-2">
+					Nazwisko i imię
+				</th>
+
+				<th class="col-xs-2">
+					Uprawnienia
+				</th>
+
+				<th class="col-xs-2">
+					Opis
+				</th>
+
+				<th>
+					Data zatrudnienia
+				</th>
+
+				<th>
+					Data zwolnienia
+				</th>
+
+				<th>
+					Data modyfikacji
+				</th>
+
+				<th class="col-xs-2">
+					Opcje
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for t in trenerzy %}
+				<tr>
+					<td>
+						{{ loop.index }}
+					</td>
+
+					<td>
+						{{ t.trener }}
+					</td>
+
+					<td class="hidden-480">
+						{{ t.uprawnienia }}
+					</td>
+
+					<td class="hidden-480">
+						{{ t.opis }}
+					</td>
+
+					<td class="hidden-480">
+						{{ t.zatrudniony | date("Y-m-d")}}
+					</td>
+
+					<td class="hidden-480">
+						{% if t.zwolniony == null %}
+						---
+						{% else %}
+						{{ t.zwolniony | date("Y-m-d")}}
+						{% endif %}
+					</td>
+
+					<td class="hidden-480">
+						{{ t.modyfikacja | date("Y-m-d")}}
+					</td>
+
+					<td class="hidden-480">
+						<a href="{{ url("trenerzy_edytuj", {"id": t.id }) }}" class="btn btn-xs btn-success">
+							<i class="ace-icon fa fa-pencil bigger-120"></i>
+							Edytuj
+						</a>
+
+						<a href="{{ url("trenerzy_zwolniony", {"id": t.id}) }}" class="btn btn-xs btn-danger">
+							<i class="ace-icon fa fa-minus-square bigger-120"></i>
+							Zwolniony
+						</a>
+
+						<a href="{{ url("trenerzy_usun", {"id": t.id}) }}" class="btn btn-xs btn-inverse">
+							<i class="ace-icon fa fa-trash bigger-120"></i>
+							Usuń
+						</a>
+
+					</td>
+				</tr>
+		</tbody>
+			{% endfor %}
+	</table>
+	{# tabelazestawienie trenerów - koniec#}
+
+	<div class="clearfix"></div>
+</div>
+
+{% endblock %}

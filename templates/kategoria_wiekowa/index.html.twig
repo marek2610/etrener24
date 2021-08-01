@@ -1,0 +1,61 @@
+{% extends 'base_index.html.twig' %}
+
+{% block body %}
+
+<div class="col-xs-12">
+<h4 class="header green">Kategoria wiekowa</h4>
+	<table id="simple-table" class="table  table-bordered table-hover">									
+		<thead>
+			<tr>
+				<th class="detail-col">#</th>
+				<th class="col-xs-3">
+                    Nazwa PZPN
+                </th>
+				<th class="col-xs-3">
+					Kategoria wiekoiwa
+				</th>
+                <th class="col-xs-3">
+					Nazwa UEFA
+				</th>
+				<th class="">
+                    Opcje
+                </th>
+			</tr>
+		</thead>
+        <tbody>
+            {% for kategoria_wiekowa in kategoriaWiekowa %}
+           <tr>
+                <td>{{loop.index}}</td>
+                <td>
+                    <a href="{{ url("kategoria_wiekowa_details", {"id": kategoria_wiekowa.id})}}">{{kategoria_wiekowa.nazwaPzpn}}</a>    
+                </td>
+                <td>{{kategoria_wiekowa.grupaWiekowa}}</td>
+                <td>{{kategoria_wiekowa.nazwaUefa}}</td>
+                <td>
+                    <div class="hidden-sm hidden-xs btn-group">
+                        <a class="btn btn-xs btn-success disabled" href="http://" target="_blank" rel="noopener noreferrer">
+                            <i class="ace-icon fa fa-check bigger-120"></i>
+                        </a>
+
+                        <a class="btn btn-xs btn-info disabled" href="http://" target="_blank" rel="noopener noreferrer">
+                            <i class="ace-icon fa fa-pencil bigger-120"></i>
+                        </a>
+
+                        <a class="btn btn-xs btn-danger disabled" href="http://" target="_blank" rel="noopener noreferrer">
+                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                        </a>
+
+                        <a class="btn btn-xs btn-warning disabled" href="http://" target="_blank" rel="noopener noreferrer">
+                            <i class="ace-icon fa fa-flag bigger-120"></i>
+                        </a>
+
+                    </div>
+
+                </td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

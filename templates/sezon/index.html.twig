@@ -1,0 +1,70 @@
+{% extends "base_index.html.twig" %}
+
+{% block title %}Sezon{% endblock %}
+
+{% block body %}
+<div class="col-xs-12">
+<h4 class="header green">Sezon</h4>
+	<table id="simple-table" class="table  table-bordered table-hover">									
+		<thead>
+			<tr>
+				<th class="detail-col">#</th>
+				<th class="col-xs-3">
+                    Nazwa
+                </th>
+				<th class="col-xs-3">
+					Opis
+				</th>
+                <th class="col-xs-3">
+					Zespół
+				</th>
+				<th class="">
+                    Trener
+                </th>
+                <th>Opcje</th>
+			</tr>
+		</thead>
+        <tbody>
+            {% for s in sezon %}
+           <tr> 
+                <td>{{ loop.index }}</td>
+                <td>
+                <a href="{{ url("sezon_info", {"id": s.id}) }}">{{ s.nazwa }} </a>
+                    
+                </td>
+                <td>{{ s.opis }}</td>
+                <td>{{ s.team }}</td>
+                <td>{{ s.team.trener}}</td>
+                <td>
+                    <div class="hidden-sm hidden-xs btn-group">
+                        <a href="" class="btn btn-xs btn-info disabled">
+                            <i class="ace-icon fa fa-check bigger-120"></i> Info
+                        </a>
+                        
+                        <a href="{{ url("sezon_edytuj", {"id": s.id}) }}" class="btn btn-xs btn-success">
+                            <i class="ace-icon fa fa-pencil bigger-120"></i> Edytuj
+                        </a>
+
+                        <a href="{{ url('sezon_usun', {"id": s.id}) }}" class="btn btn-xs btn-inverse">
+                            <i class="ace-icon fa fa-trash-o bigger-120"></i> Usuń
+                        </a>
+
+                    </div>
+
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td class="text-center" colspan="6" >
+                   <p>
+                   <strong>Uwaga!</strong> Niestety nie ma żadnej aktywnego sezonu. 
+                   Aby dodać kolejny sezon kliknij <a href={{ url("sezon_dodaj") }} class="alert-link">TUTAJ</a>.
+                   </p>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
