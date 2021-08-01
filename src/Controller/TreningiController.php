@@ -21,9 +21,12 @@ class TreningiController extends AbstractController
     public function index()
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        tUser($this->getUser())
-        ]);
 
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $treningi = $entityManager->getRepository(Treningi::class)->findBy([
+            'owner' => $this->getUser(),
+        ]);
         #dd($treningi);
 
         return $this->render('treningi/index.html.twig', [
